@@ -1,0 +1,49 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Wireless Bluetooth Headphones",
+      "price": 59.99,
+      "category": "Electronics",
+      "description": "Over-ear headphones with 20-hour battery life and noise cancellation.",
+      "inStock": true,
+      "rating": 4.5
+    },
+    {
+      "id": 2,
+      "name": "Stainless Steel Water Bottle",
+      "price": 19.95,
+      "category": "Kitchen & Dining",
+      "description": "Vacuum insulated, keeps drinks cold for 24 hours or hot for 12 hours.",
+      "inStock": true,
+      "rating": 4.8
+    },
+    {
+      "id": 3,
+      "name": "Yoga Mat Non-Slip",
+      "price": 29.99,
+      "category": "Sports & Outdoors",
+      "description": "Eco-friendly, 6mm thick mat with alignment lines for perfect posture.",
+      "inStock": false,
+      "rating": 4.3
+    },
+    {
+      "id": 4,
+      "name": "Smart LED Bulb",
+      "price": 14.99,
+      "category": "Home Automation",
+      "description": "Wi-Fi enabled, works with Alexa and Google Home, 16 million colors.",
+      "inStock": true,
+      "rating": 4.2
+    },
+    {
+      "id": 5,
+      "name": "Ergonomic Office Chair",
+      "price": 199.99,
+      "category": "Furniture",
+      "description": "Adjustable lumbar support, breathable mesh back, and padded armrests.",
+      "inStock": true,
+      "rating": 4.7
+    }
+  ]
+}
