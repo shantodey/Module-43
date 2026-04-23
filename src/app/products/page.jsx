@@ -1,7 +1,10 @@
+export const metadata = {
+  title: 'Products',
+  description: ' Product data from Api',
+}
 import Prodect from "../Components/Prodect";
-
 const getProdects = async() => {
-    const res = await fetch('http://localhost:5004/products')
+    const res = await fetch('http://localhost:5004/products',{next:{revalidate: 20}})
     return res.json()
 }
 

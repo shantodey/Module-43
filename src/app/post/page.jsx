@@ -1,4 +1,7 @@
-
+export const metadata = {
+    title: 'Posts',
+    description: 'Read our latest posts',
+}
 //  const getPost = async() => {
 //      
 //     try{
