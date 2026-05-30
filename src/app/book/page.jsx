@@ -1,15 +1,29 @@
 import BookCard from "../Components/BookCard";
+import Searchber from "../Components/Searchber";
 
-
-const page = async() => {
-    const res=await fetch('http://localhost:5004/books',{next:{revalidate:20}})
-    const books=await res.json()
+const getBookData = async (search="",catagory="") => {
+    const res = await fetch(`https://phi-lab-server.vercel.app/api/v1/lab/foods?search=${search}&category=${catagory}`, { next: { revalidate: 20 } })
+    const book = await res.json()
+    const allFood=book.data
+    return allFood
+}
+const page = async({searchParams}) => {
+    const sp= await searchParams;
+    console.log(sp);
+    
+    const foods=await getBookData(sp.search, sp.catagory)
+    console.log(foods);
+    
     return (
         <div className="container mx-auto">
-            <h1>this is books {books.length}</h1>
+            <div className="flex py-6 grid-cols-2 items-center justify-center">
+                
+            <Searchber />
+            </div>
+            
             <div className="grid grid-cols-3 gap-4">
-                {books.map((book)=>(
-                    <BookCard key={book.id} book={book}></BookCard>
+                {foods.map((food) => (
+                    <BookCard key={food.id} food={food}></BookCard>
                 ))}
             </div>
         </div>

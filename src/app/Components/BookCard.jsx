@@ -1,62 +1,60 @@
 import Image from "next/image";
+import Link from "next/link";
 
-const BookCard = ({ book }) => {
-  const { title, author, description, price, genre, year, rating, inStock, image } = book;
-
+const BookCard = ({ food }) => {
+  const { id, dish_name,cuisine, price, rating, image_link, possible_price_in_dhaka} = food;
   return (
-    <div className="group relative bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 flex flex-col">
+    <Link
+      href={`/food/${id}`}
+      className="group relative rounded-2xl overflow-hidden bg-base-100 border border-base-300 shadow-md hover:shadow-2xl transition duration-300"
+    >
+      <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 blur-2xl transition"></div>
 
-      {/* Image */}
-      <div className="relative w-full h-64 overflow-hidden">
+      <div className="relative h-52 w-full overflow-hidden">
         <Image
-          src={image}
-          alt={title}
+          src={image_link}
+          alt={dish_name}
           fill
-          className="object-cover group-hover:scale-105 transition-transform duration-500"
+          className="object-cover group-hover:scale-110 transition duration-500"
         />
-        {/* Genre badge */}
-        <span className="absolute top-3 left-3 bg-black/60 text-white text-xs font-semibold px-3 py-1 rounded-full backdrop-blur-sm">
-          {genre}
-        </span>
-        {/* Stock badge */}
-        <span className={`absolute top-3 right-3 text-xs font-semibold px-3 py-1 rounded-full backdrop-blur-sm ${
-          inStock ? "bg-green-500/80 text-white" : "bg-red-500/80 text-white"
-        }`}>
-          {inStock ? "✓ In Stock" : "✗ Out of Stock"}
-        </span>
+
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+
+        <div className="absolute top-3 right-3 bg-black/70 text-yellow-400 text-xs px-2 py-1 rounded-md backdrop-blur">
+          ★ {rating}
+        </div>
       </div>
 
-      {/* Content */}
-      <div className="flex flex-col flex-1 p-5 gap-2">
-        <div>
-          <h2 className="text-lg font-bold text-gray-900 dark:text-white leading-tight line-clamp-1">
-            {title}
-          </h2>
-          <p className="text-sm text-indigo-500 dark:text-indigo-400 font-medium mt-0.5">
-            by {author}
-          </p>
-        </div>
+      <div className="p-4 flex flex-col gap-2">
+        <h2 className="text-base font-bold text-base-content line-clamp-1">
+          {dish_name}
+        </h2>
 
-        <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed line-clamp-2 flex-1">
-          {description}
+        <p className="text-sm text-base-content/60 line-clamp-1">
+          {cuisine}
         </p>
 
-        {/* Meta row */}
-        <div className="flex items-center gap-3 text-xs text-gray-400 dark:text-gray-500 mt-1">
-          <span>📅 {year}</span>
-          <span className="text-yellow-500 font-semibold">★ {rating}</span>
-        </div>
+        <div className="flex items-center justify-between mt-3">
+          <div className="flex flex-col">
+            <span className="text-lg font-extrabold text-primary">
+              ৳{price}
+            </span>
 
-        {/* Footer */}
-        <div className="flex items-center justify-between pt-3 border-t border-gray-100 dark:border-gray-700 mt-auto">
-          <span className="text-2xl font-bold text-gray-900 dark:text-white">${price}</span>
-          <button className="bg-indigo-600 hover:bg-indigo-700 active:scale-95 text-white text-sm font-semibold px-4 py-2 rounded-xl transition-all duration-200">
-            Add to Cart
-          </button>
+            <span className="text-xs text-base-content/50">
+              Dhaka: {possible_price_in_dhaka?.street_food_or_small_restaurant}
+            </span>
+          </div>
+
+          <span className="text-xs opacity-0 group-hover:opacity-100 transition">
+            View →
+          </span>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
 export default BookCard;
+const FoodCard = ({ food }) => {
+ 
+};

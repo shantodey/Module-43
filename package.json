@@ -6,8 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint",
-    "server":"json-server --watch db.json --port 5004"
+    "lint": "eslint"
   },
   "dependencies": {
     "json-server": "^1.0.0-beta.15",
